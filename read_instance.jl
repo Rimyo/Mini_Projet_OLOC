@@ -73,6 +73,11 @@ function Dessine_UFLP(nom_fichier)
     
 end
 
+function dist(x1, y1, x2, y2)
+    return sqrt((x2 - x1)^2 + (y2 - y1)^2)
+end
+
+
 
 # Fonction Dessine solution
 function Dessine_UFLP(nom_fichier, S)
@@ -81,6 +86,7 @@ function Dessine_UFLP(nom_fichier, S)
     Y=Float64[]
 
     n=0
+    f= Float64[]
     tabX=Float64[]
     tabY=Float64[]
 
