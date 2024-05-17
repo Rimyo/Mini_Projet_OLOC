@@ -75,11 +75,17 @@ end
 
 
 # Fonction Dessine solution
-function Dessine_UFLP(nom_fichier, n, tabX, tabY, S)
+function Dessine_UFLP(nom_fichier, S)
 
     X=Float64[]
-    Y=Float64[]	
-    
+    Y=Float64[]
+
+    n=0
+    tabX=Float64[]
+    tabY=Float64[]
+
+    n= Lit_fichier_UFLP(nom_fichier, tabX, tabY, f)
+
     nom_fichier_en_deux_morceaux = split(nom_fichier,".") # découpe le nom du fichie d'entrée sans l'extension
     nom_fichier_avec_pdf_a_la_fin= nom_fichier_en_deux_morceaux[1]*"_sol.pdf"
 
