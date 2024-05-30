@@ -61,13 +61,19 @@ z = pulp.LpVariable('z', lowBound=0)
 # fonction objective
 problem += z
 
-# Contraintes
+# ---Contraintes---
+# Contrainte 1
+problem += pulp.lpSum(x[i][i] for i in range(n)) <= p
+# Contrainte 2
 for i in range(n):
     problem += pulp.lpSum(x[i][j] for j in range(n)) == 1
+# Contrainte 3
+for i in range(n):
+    for j in range(n):
+        if j != i:
+            problem += x[i][j] <= x[j][j]
+# Contrainte 4        
 for j in range(n):
-    problem += pulp.lpSum(x[i][i] for i in range(n)) <= p
-    for i in range(n):
-        problem += x[i][j] <= x[j][j]
     problem += pulp.lpSum(distances[i][j] * x[i][j] for i in range(n)) <= z
 
 
