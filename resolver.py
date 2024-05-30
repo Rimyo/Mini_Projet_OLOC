@@ -78,7 +78,9 @@ for j in range(n):
 
 
 # Résolution du problème avec le solveur pré défini
-problem.solve()
+# problem.solve()
+
+problem.writeLP("problem.lp")
 
 
 # dictionnaire contenant les key-value: ville i et son antenna j
